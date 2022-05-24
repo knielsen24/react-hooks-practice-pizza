@@ -7,11 +7,13 @@ function App() {
 	
 	const [pizza, setPizza] = useState([])
 	const [formItem, setFormItem] = useState({})
-
+	
 	const onHandleEdit = (e) => {
 		console.log(e.target.value)
-		setFormItem(pizza.filter(pie => e.target.value === pie.id ? pie : null))
+		const findPizza = pizza.find(({ id }) => id === parseInt(e.target.value))
+		setFormItem(findPizza)
 	}
+
 	console.log(formItem)
 
 	useEffect(() =>{
